@@ -13,7 +13,7 @@ import 'dotenv/config';
 
     const server = fastify({
         logger: pino({ level: 'info' }),
-        genReqId(req) {
+        genReqId() {
             return uuid();
         }
     });

@@ -9,7 +9,7 @@ export class Customer extends BaseEntity {
     lastName!: string;
     @Property()
     address1!: string;
-    @Property({nullable: true})
+    @Property({ nullable: true })
     address2?: string;
     @Property()
     city!: string;

@@ -75,9 +75,7 @@ const customerById = async (server: FastifyInstance) => {
                     email,
                     phone
                 );
-                const id = await server.db.em
-                    .fork({})
-                    .persistAndFlush([customer]);
+                await server.db.em.fork({}).persistAndFlush([customer]);
                 return reply.code(201).send('Created customer');
             } catch (err) {
                 request.log.error(err);
