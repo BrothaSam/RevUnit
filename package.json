@@ -25,6 +25,7 @@
   "homepage": "https://github.com/BrothaSam/RevUnit#readme",
   "dependencies": {
     "@fastify/autoload": "^5.0.0",
+    "@fastify/cors": "^8.0.0",
     "@mikro-orm/core": "^5.2.2",
     "@mikro-orm/sqlite": "^5.2.2",
     "dotenv": "^16.0.1",

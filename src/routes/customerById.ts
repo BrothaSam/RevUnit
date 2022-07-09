@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyRequest } from 'fastify';
-import { Customer } from '../../models';
+import { Customer } from '../models/db';
 
 type CustomerRequest = FastifyRequest<{
     Params: {
@@ -24,6 +24,7 @@ const customerById = async (server: FastifyInstance) => {
             return reply.code(200).send(customer);
         } catch (err) {
             request.log.error(err);
+            //basic error response. could use something like RFC7807
             return reply.code(500).send('Error fetching customer.');
         }
     });

@@ -1,6 +1,7 @@
 import { FastifyInstance, FastifyRequest } from 'fastify';
-import { Customer } from '../../models';
+import { Customer } from '../models/db';
 
+//libraries available to get types based on JSON schema, but decided to go this route for simplicity and to be explicit.
 type CustomerRequest = FastifyRequest<{
     Body: {
         firstName: string;
@@ -16,6 +17,7 @@ type CustomerRequest = FastifyRequest<{
     };
 }>;
 
+//basic validations
 const PostCustomerSchema = {
     type: 'object',
     required: [
@@ -79,6 +81,7 @@ const customerById = async (server: FastifyInstance) => {
                 return reply.code(201).send('Created customer');
             } catch (err) {
                 request.log.error(err);
+                //basic error response. could use something like RFC7807
                 return reply.code(500).send('Error creating customer.');
             }
         }
